@@ -82,8 +82,8 @@ header {
           border-radius: 0.25em;
           border: 1px solid $veryDarkBlue;
         }
-        input:focus{
-            outline: none;
+        input:focus {
+          outline: none;
         }
         button {
           padding: 0.75em;
@@ -94,20 +94,20 @@ header {
           font-weight: 700;
           font-size: 1em;
         }
-        .error{
-            position: absolute;
-            top: 100%;
-            left: 0;
-            font-size: 1em;
-            margin-top: .5em;
-            color: red;
-            display: none;
+        .error {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          font-size: 1em;
+          margin-top: 0.5em;
+          color: red;
+          display: none;
         }
-        .error.show{
-            display: block;
+        .error.show {
+          display: block;
         }
-        input.wrong{
-            border-color: red;
+        input.wrong {
+          border-color: red;
         }
       }
     }
@@ -236,13 +236,13 @@ main {
       input::placeholder {
         opacity: 0.5;
       }
-      input{
+      input {
         border: 1px solid transparent;
       }
-      input:focus{
+      input:focus {
         outline: none;
       }
-      input.wrong{
+      input.wrong {
         border-color: red;
       }
       button {
@@ -250,13 +250,13 @@ main {
         color: white;
         font-weight: 700;
       }
-      .error{
+      .error {
         padding: unset;
         text-align: left;
-        margin-top: -.75em;
+        margin-top: -0.75em;
         display: none;
       }
-      .error.show{
+      .error.show {
         display: block;
       }
     }
