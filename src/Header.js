@@ -1,6 +1,7 @@
 import logo from "./images/logo.svg";
 import image1 from "./images/illustration-1.svg";
-const Header = () => {
+
+const Header = ({ handleClick1, inputRef1, showFirstError }) => {
   return (
     <header>
       <div className="top">
@@ -33,8 +34,16 @@ const Header = () => {
             and co-workers.
           </p>
           <div className="form-group">
-            <input type="text" placeholder="Enter your email..." />
-            <button>Get Started</button>
+            <input
+              className={showFirstError ? "wrong" : ""}
+              ref={inputRef1}
+              type="text"
+              placeholder="Enter your email..."
+            />
+            <p className={`error ${showFirstError ? "show" : ""}`}>
+              Please check your email
+            </p>
+            <button onClick={handleClick1}>Get Started</button>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import image2 from "./images/illustration-2.svg";
 import arrow from "./images/icon-arrow.svg";
 import quotes from "./images/icon-quotes.svg";
 import avatar from "./images/avatar-testimonial.jpg";
-const Main = () => {
+const Main = ({ inputRef2, handleClick2, showSecondError }) => {
   return (
     <main>
       <section className="productive">
@@ -43,15 +43,25 @@ const Main = () => {
         </div>
       </section>
       <section className="access">
-        <h2>Get early access today</h2>
-        <p>
-          It only takes a minute to sign up and our free starter tier is
-          extremely generous. If you have any questions, our support team would
-          be happy to help you.
-        </p>
+        <div className="text">
+          <h2>Get early access today</h2>
+          <p>
+            It only takes a minute to sign up and our free starter tier is
+            extremely generous. If you have any questions, our support team
+            would be happy to help you.
+          </p>
+        </div>
         <div className="form-group">
-          <input type="text" placeholder="email@example.com" />
-          <button>Get Started For Free</button>
+          <input
+            className={showSecondError ? "wrong" : ""}
+            ref={inputRef2}
+            type="text"
+            placeholder="email@example.com"
+          />
+          <p className={`error ${showSecondError ? "show" : ""}`}>
+            Please check your email
+          </p>
+          <button onClick={handleClick2}>Get Started For Free</button>
         </div>
       </section>
     </main>

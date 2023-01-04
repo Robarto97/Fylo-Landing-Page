@@ -75,11 +75,15 @@ header {
         display: flex;
         flex-direction: column;
         width: 100%;
+        position: relative;
         gap: 1em;
         input {
           padding: 1em 1.5em;
           border-radius: 0.25em;
           border: 1px solid $veryDarkBlue;
+        }
+        input:focus{
+            outline: none;
         }
         button {
           padding: 0.75em;
@@ -89,6 +93,21 @@ header {
           background-color: $brightBlue;
           font-weight: 700;
           font-size: 1em;
+        }
+        .error{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            font-size: 1em;
+            margin-top: .5em;
+            color: red;
+            display: none;
+        }
+        .error.show{
+            display: block;
+        }
+        input.wrong{
+            border-color: red;
         }
       }
     }
@@ -194,12 +213,15 @@ main {
     text-align: center;
     background-color: $desatBlue;
     color: white;
-    h2 {
-      font-size: 1.25em;
-    }
-    p {
-      line-height: 1.6;
-      padding: 0 1em;
+    .text {
+      h2 {
+        font-size: 1.25em;
+        margin-bottom: 1em;
+      }
+      p {
+        line-height: 1.6;
+        padding: 0 1em;
+      }
     }
     .form-group {
       display: flex;
@@ -214,10 +236,28 @@ main {
       input::placeholder {
         opacity: 0.5;
       }
+      input{
+        border: 1px solid transparent;
+      }
+      input:focus{
+        outline: none;
+      }
+      input.wrong{
+        border-color: red;
+      }
       button {
         background-color: $brightBlue;
         color: white;
         font-weight: 700;
+      }
+      .error{
+        padding: unset;
+        text-align: left;
+        margin-top: -.75em;
+        display: none;
+      }
+      .error.show{
+        display: block;
       }
     }
   }
@@ -253,18 +293,188 @@ footer {
         }
       }
     }
-    .icons{
-        align-self: center;
-        display: flex;
-        gap: .75em;
-        margin-top: 1em;
-        .icon{
-            border: 1px solid white;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            padding: .35em;
+    .icons {
+      align-self: center;
+      display: flex;
+      gap: 0.75em;
+      margin-top: 1em;
+      .icon {
+        border: 1px solid white;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        padding: 0.35em;
+      }
+    }
+  }
+}
+
+@media screen and (width > 425px) {
+  header {
+    padding: 4em 6em;
+    .top {
+      .logo {
+        width: 15%;
+      }
+      nav {
+        ul {
+          gap: 2.5em;
+          li {
+            font-size: 1.25em;
+          }
         }
+      }
+    }
+    .bottom {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 3em;
+      .text {
+        align-items: flex-start;
+        text-align: left;
+        width: 90%;
+        h1 {
+          font-size: 2.75em;
+        }
+        p {
+          padding: unset;
+          font-size: 1.25em;
+        }
+        .form-group {
+          flex-direction: row;
+          padding-right: 4em;
+          input {
+            flex-grow: 2;
+            padding: 1.5em;
+          }
+          button {
+            flex-grow: 1;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+          }
+          button:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+  main {
+    background-image: url(images/bg-curve-desktop.svg);
+    background-position: top -5% right 0;
+    .productive {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 3em;
+      padding: 6em;
+      .text {
+        margin: unset;
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+        h2 {
+          font-size: 2.5em;
+        }
+        p {
+          color: $veryDarkBlue;
+          font-weight: 700;
+          width: 75%;
+        }
+        p:last-of-type {
+          margin: unset;
+          justify-content: flex-start;
+          padding-bottom: 0.25em;
+          width: 25%;
+          cursor: pointer;
+          transition: opacity 0.3s ease;
+          margin-bottom: 2em;
+          img {
+            width: 10%;
+          }
+        }
+        p:last-of-type:hover {
+          opacity: 0.6;
+        }
+        .review {
+          margin: unset;
+          width: 50%;
+          padding-right: 2em;
+          img {
+            width: 5%;
+          }
+          p {
+            width: 100%;
+            font-size: 0.85em;
+            padding: unset;
+            margin: unset;
+          }
+        }
+      }
+    }
+    .access {
+      padding: 6em;
+      flex-direction: row;
+      justify-content: space-between;
+      .text {
+        text-align: left;
+        width: 45%;
+        h2 {
+          font-size: 2.75em;
+        }
+        p {
+          padding: unset;
+          font-size: 1.25em;
+        }
+      }
+      .form-group {
+        width: 40%;
+        gap: 1em;
+        * {
+          padding: 1.5em;
+        }
+        button {
+          width: 45%;
+          font-size: 1em;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        button:hover {
+          background-color: hsl(224, 100%, 77%);
+        }
+      }
+    }
+  }
+  footer {
+    padding: 6em;
+    .links {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-right: 15%;
+      align-items: flex-start;
+      ul {
+        gap: 1em;
+        li {
+          a {
+            transition: color 0.3s ease;
+          }
+          a:hover {
+            color: $desatBlue;
+          }
+        }
+      }
+      .icons {
+        margin: unset;
+        align-self: flex-start;
+        .icon {
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .icon:hover {
+          color: $desatBlue;
+          border-color: $desatBlue;
+        }
+      }
     }
   }
 }
