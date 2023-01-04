@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap");
+$veryDarkBlue: hsl(243, 87%, 12%);
+$desatBlue: hsl(238, 22%, 44%);
+$brightBlue: hsl(224, 93%, 58%);
+$moderateCyan: hsl(170, 45%, 43%);
+$lightGrayishBlue: hsl(240, 75%, 98%);
+$lightGray: hsl(0, 0%, 75%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+h1,
+h2,
+button,
+nav {
+  font-family: "Raleway", sans-serif;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  padding: 2em;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 25%;
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+    nav {
+      ul {
+        display: flex;
+        gap: 1em;
+        li {
+          a {
+            color: $veryDarkBlue;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    margin-top: 6em;
+    .img-wrapper {
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+    .text {
+      margin-top: 3em;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+      h1 {
+        font-size: 1.75em;
+        line-height: 1.4;
+      }
+      p {
+        color: $veryDarkBlue;
+        padding: 0 1em;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1em;
+        input {
+          padding: 1em 1.5em;
+          border-radius: 0.25em;
+          border: 1px solid $veryDarkBlue;
+        }
+        button {
+          padding: 0.75em;
+          border-radius: 0.25em;
+          border: none;
+          color: $lightGrayishBlue;
+          background-color: $brightBlue;
+          font-weight: 700;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 3em;
+  background-image: url(images/bg-curve-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top 0% right 0;
+  padding-top: 3.5em;
+  .productive {
+    background-color: $lightGrayishBlue;
+    padding: 2em;
+    padding-bottom: 5em;
+    .img-wrapper {
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+    .text {
+      margin-top: 6em;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+      h2 {
+        text-align: center;
+        font-size: 1.25em;
+      }
+      > p {
+        color: $desatBlue;
+      }
+      > p:last-of-type {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        border-bottom: 1px solid $moderateCyan;
+        width: 49%;
+        margin: 1.5em auto;
+        padding-bottom: 0.5em;
+        a {
+          color: $moderateCyan;
+        }
+        img {
+          width: 13%;
+        }
+      }
+      .review {
+        background-color: white;
+        margin: 0 1.5em;
+        padding: 1.5em 2em;
+        padding-right: 0.75em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        border-radius: 0.5em;
+        box-shadow: 0 0 15px -7px $lightGray;
+        > img {
+          width: 7%;
+        }
+        p {
+          font-size: 0.75em;
+          line-height: 1.6;
+        }
+        .profile {
+          display: flex;
+          align-items: center;
+          gap: 0.75em;
+          margin-top: 0.5em;
+          .img-wrapper {
+            overflow: hidden;
+            border-radius: 50%;
+            width: 15%;
+            img {
+              width: 100%;
+              display: block;
+            }
+          }
+          .roles {
+            p:first-child {
+              font-weight: 700;
+              letter-spacing: 1px;
+              color: $veryDarkBlue;
+            }
+            p:last-child {
+              font-size: 0.6em;
+            }
+          }
+        }
+      }
+    }
+  }
+  .access {
+    padding: 4em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+    text-align: center;
+    background-color: $desatBlue;
+    color: white;
+    h2 {
+      font-size: 1.25em;
+    }
+    p {
+      line-height: 1.6;
+      padding: 0 1em;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      gap: 0.5em;
+      * {
+        padding: 1em;
+        border-radius: 0.25em;
+        border: none;
+      }
+      input::placeholder {
+        opacity: 0.5;
+      }
+      button {
+        background-color: $brightBlue;
+        color: white;
+        font-weight: 700;
+      }
+    }
+  }
+}
+footer {
+  background-color: $veryDarkBlue;
+  color: white;
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    .address {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+      .line {
+        display: grid;
+        grid-template-columns: 40px auto;
+        align-items: center;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      li {
+        a {
+          color: white;
+        }
+      }
+    }
+    .icons{
+        align-self: center;
+        display: flex;
+        gap: .75em;
+        margin-top: 1em;
+        .icon{
+            border: 1px solid white;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            padding: .35em;
+        }
+    }
+  }
+}
